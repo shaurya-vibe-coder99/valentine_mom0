@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Momo 💖</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <audio id="bgMusic" loop>
+        <source src="https://www.chosic.com/wp-content/uploads/2021/07/The-Only-Girl-Romantic-Piano.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="main-container">
+        
+        <div id="welcome-screen" class="glass-card">
+            <h1 class="romantic-font">Hey Momo...</h1>
+            <p class="soft-text">I have a small surprise for you.</p>
+            <button class="btn pulse-btn" onclick="enterSite()">✨ Click Here ✨</button>
+        </div>
+
+        <div id="landing-screen" class="glass-card hidden">
+            <h1 class="romantic-font pink-glow">Will you be my Valentine?</h1>
+            <div class="buttons-container">
+                <button id="yesBtn" class="btn yes-btn" onclick="goToTransition()">YESSS! 💖</button>
+                <button id="noBtn" class="btn no-btn" onmouseover="moveButton()" onclick="moveButton()">No 😢</button>
+            </div>
+        </div>
+
+        <div id="transition-screen" class="glass-card hidden">
+            <h1 class="romantic-font">I knew you'd say that! 😏</h1>
+            <p class="soft-text">But wait... standard protocol requires a quick compatibility check first.</p>
+            <button class="btn yes-btn" onclick="startQuiz()">Challenge Accepted 💅</button>
+        </div>
+
+        <div id="quiz-screen" class="glass-card hidden">
+            <div class="progress-container">
+                <div id="progress-bar" class="progress-fill"></div>
+            </div>
+            <h2 id="question-text" class="quiz-text">Question Text</h2>
+            <div id="answers-container" class="answers-grid">
+                </div>
+        </div>
+
+        <div id="success-screen" class="glass-card hidden">
+            <h1 class="romantic-font success-title">ACCESS GRANTED 💖</h1>
+            <p class="soft-text">You chose wisely 😌✨</p>
+            
+            <div class="timer-display" id="countdown">⏳ Calculating...</div>
+
+            <div class="witty-details">
+                <div class="detail-row">
+                    <span class="icon">🍕</span>
+                    <span class="text">Your favorite calories are on Shaurya (Standard Operating Procedure).</span>
+                </div>
+                <div class="detail-row">
+                    <span class="icon">👗</span>
+                    <span class="text">Illegal levels of cuteness (Seriously, I'll call the cops).</span>
+                </div>
+                <div class="detail-row">
+                    <span class="icon">💻</span>
+                    <span class="text">Google Meet (Where distance goes to die).</span>
+                </div>
+                <div class="detail-row">
+                    <span class="icon">🌍</span>
+                    <span class="text">0km (My heart is already in your room anyway).</span>
+                </div>
+            </div>
+
+            <button id="launchBtn" class="btn launch-btn" onclick="launchDate()">💻 Start Our Valentine Date</button>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
