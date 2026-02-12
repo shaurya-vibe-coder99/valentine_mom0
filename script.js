@@ -51,14 +51,35 @@ function enterSite() {
 }
 
 // 3. LANDING SCREEN LOGIC
+// --- UPDATED MOVE BUTTON LOGIC ---
 function moveButton() {
     const btn = document.getElementById('noBtn');
-    const maxX = window.innerWidth - btn.offsetWidth - 30;
-    const maxY = window.innerHeight - btn.offsetHeight - 30;
     
-    btn.style.position = 'fixed';
-    btn.style.left = Math.random() * maxX + 'px';
-    btn.style.top = Math.random() * maxY + 'px';
+    // 1. Get the actual visible screen size (accounting for mobile address bars)
+    const screenWidth = window.innerWidth;
+    const screenHeight = window.innerHeight;
+
+    // 2. Get the button's size
+    const btnWidth = btn.offsetWidth;
+    const btnHeight = btn.offsetHeight;
+
+    // 3. Set a safe margin so it doesn't hug the very edge (50px)
+    const margin = 50;
+
+    // 4. Calculate the max possible positions
+    const maxX = screenWidth - btnWidth - margin;
+    const maxY = screenHeight - btnHeight - margin;
+
+    // 5. Generate random coordinates within the safe zone
+    // Math.max ensures we don't get a negative number on tiny screens
+    const randomX = Math.max(margin, Math.floor(Math.random() * maxX));
+    const randomY = Math.max(margin, Math.floor(Math.random() * maxY));
+
+    // 6. Apply the position
+    btn.style.position = 'fixed'; // Switch to fixed so it stays in the viewport
+    btn.style.left = randomX + 'px';
+    btn.style.top = randomY + 'px';
+    btn.style.zIndex = "999"; // Ensure it stays on top of other elements
 }
 
 function goToTransition() {
